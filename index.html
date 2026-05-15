@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Keyboard + Mouse Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="pointer-overlay" id="pointerOverlay">
+    <canvas id="pointerCanvas"></canvas>
+  </div>
+  <div class="app-shell">
+    <header>
+      <h1>Keyboard + Mouse Tracker</h1>
+      <p>Shows keys, mouse buttons, and CPS in real time.</p>
+    </header>
+
+    <section class="status-panel">
+      <div class="status-card">
+        <h2>Active Keys</h2>
+        <div id="activeKeys">None</div>
+      </div>
+      <div class="status-card">
+        <h2>Clicks Per Second</h2>
+        <div class="metric">
+          <span id="cps">0.00</span>
+          <small>Last 1 second</small>
+        </div>
+      </div>
+      <div class="status-card">
+        <h2>Mouse</h2>
+        <div class="mouse-status">
+          <div class="mouse-button" id="mouse-left">Left</div>
+          <div class="mouse-button" id="mouse-right">Right</div>
+          <div class="mouse-button" id="mouse-middle">Middle</div>
+        </div>
+      </div>
+      <div class="status-card">
+        <h2>Key Waterfall</h2>
+        <label class="field-label">
+          Mode
+          <select id="modeSelect">
+            <option value="normal">Normal</option>
+            <option value="waterfall">Key waterfall</option>
+          </select>
+        </label>
+        <label class="field-label">
+          Waterfall keys
+          <select id="waterfallKeysSelect" multiple size="8"></select>
+        </label>
+        <div class="hint">Select keys here, then press them to trace a waterfall lane.</div>
+      </div>
+    </section>
+
+    <section class="tracker-grid">
+      <div class="keyboard-panel">
+        <div class="row" id="row-fn"></div>
+        <div class="row" id="row-top"></div>
+        <div class="row" id="row-q"></div>
+        <div class="row" id="row-a"></div>
+        <div class="row" id="row-z"></div>
+        <div class="row" id="row-arrows"></div>
+      </div>
+      <div class="mouse-panel">
+        <div class="mouse-box">
+          <div class="mouse-title">Mouse</div>
+          <div class="mouse-body">
+            <div class="mouse-side" id="mouse-l">L</div>
+            <div class="mouse-middle" id="mouse-m">M</div>
+            <div class="mouse-side" id="mouse-r">R</div>
+          </div>
+          <div class="mouse-scroll">Scroll</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
